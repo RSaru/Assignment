@@ -27,14 +27,14 @@ void carLeave(object o)
     pumpQuestion();
 }
 */
-string[] pumpsAvailable = new string[9] { "open", "open", "open", "open", "open", "open", "open", "open", "open" };
+
 static void pumps()
 
 {
     string[] pumpsAvailable = new string[9] { "open", "open", "open", "open", "open", "open", "open", "open", "open" };
-    Console.WriteLine("Pump 1: " + pumpsAvailable[0] + "        Pump 2: -----           Pump 3: -----");
-    Console.WriteLine("Pump 4: -----        Pump 5: -----           Pump 6: -----");
-    Console.WriteLine("Pump 7: -----        Pump 8: -----           Pump 9: -----");
+    Console.WriteLine("Pump 1: " + pumpsAvailable[0] + "        Pump 2: " + pumpsAvailable[1] + "          Pump 3: " + pumpsAvailable[2]);
+    Console.WriteLine("Pump 4: " + pumpsAvailable[3] + "        Pump 5: " + pumpsAvailable[4] + "          Pump 6: " + pumpsAvailable[5]);
+    Console.WriteLine("Pump 7: " + pumpsAvailable[6] + "        Pump 8: " + pumpsAvailable[7] + "          Pump 9: " + pumpsAvailable[8]);
     Console.WriteLine("Current Cars: ");
     cars();
     pumpQuestion();
@@ -60,7 +60,6 @@ static void cars()
 
 
 
-
 static void pumpQuestion()
 {
     string[] pumpsAvailable = new string[9] { "open", "open", "open", "open", "open", "open", "open", "open", "open" };
@@ -77,16 +76,21 @@ static void pumpQuestion()
             {
                 Console.WriteLine("The car has been sent to pump 1");
                 pumpsAvailable[0] = "Closed";
-                Timer carFuel = new Timer(carLeave, null, 0, 8000);
+                Console.WriteLine("Pump 1: " + pumpsAvailable[0] + "        Pump 2: " + pumpsAvailable[1] + "          Pump 3: " + pumpsAvailable[2]);
+                Console.WriteLine("Pump 4: " + pumpsAvailable[3] + "        Pump 5: " + pumpsAvailable[4] + "          Pump 6: " + pumpsAvailable[5]);
+                Console.WriteLine("Pump 7: " + pumpsAvailable[6] + "        Pump 8: " + pumpsAvailable[7] + "          Pump 9: " + pumpsAvailable[8]);
+                pumpQuestion();
+                Timer carFuel = new Timer(carLeave, null, 8000, 8000);
 
                 void carLeave(object o)
                 {
                     pumpsAvailable[0] = "open";
                 }
             }
-            else
+            else if (pumpsAvailable[0] == "Closed")
             {
                 Console.WriteLine("That pump is occupied");
+                pumpQuestion();
             }
         }
         if (carSend == 2)
@@ -95,6 +99,13 @@ static void pumpQuestion()
             {
                 Console.WriteLine("The car has been sent to pump 2");
                 pumpsAvailable[1] = "Closed";
+                Timer carFuel = new Timer(carLeave, null, 8000, 8000);
+
+                void carLeave(object o)
+                {
+                    pumpsAvailable[1] = "open";
+                    Console.WriteLine(pumpsAvailable[1]);
+                }
             }
             else
             {
@@ -107,6 +118,13 @@ static void pumpQuestion()
             {
                 Console.WriteLine("The car has been sent to pump 3");
                 pumpsAvailable[2] = "Closed";
+                Timer carFuel = new Timer(carLeave, null, 8000, 8000);
+
+                void carLeave(object o)
+                {
+                    pumpsAvailable[2] = "open";
+                    Console.WriteLine(pumpsAvailable[2]);
+                }
             }
             else
             {
@@ -119,6 +137,13 @@ static void pumpQuestion()
             {
                 Console.WriteLine("The car has been sent to pump 4");
                 pumpsAvailable[3] = "Closed";
+                Timer carFuel = new Timer(carLeave, null, 8000, 8000);
+
+                void carLeave(object o)
+                {
+                    pumpsAvailable[3] = "open";
+                    Console.WriteLine(pumpsAvailable[3]);
+                }
             }
             else
             {
@@ -131,6 +156,13 @@ static void pumpQuestion()
             {
                 Console.WriteLine("The car has been sent to pump 5");
                 pumpsAvailable[4] = "Closed";
+                Timer carFuel = new Timer(carLeave, null, 8000, 8000);
+
+                void carLeave(object o)
+                {
+                    pumpsAvailable[4] = "open";
+                    Console.WriteLine(pumpsAvailable[4]);
+                }
             }
             else
             {
@@ -143,6 +175,13 @@ static void pumpQuestion()
             {
                 Console.WriteLine("The car has been sent to pump 6");
                 pumpsAvailable[5] = "Closed";
+                Timer carFuel = new Timer(carLeave, null, 8000, 8000);
+
+                void carLeave(object o)
+                {
+                    pumpsAvailable[5] = "open";
+                    Console.WriteLine(pumpsAvailable[5]);
+                }
             }
             else
             {
@@ -155,6 +194,13 @@ static void pumpQuestion()
             {
                 Console.WriteLine("The car has been sent to pump 7");
                 pumpsAvailable[6] = "Closed";
+                Timer carFuel = new Timer(carLeave, null, 8000, 8000);
+
+                void carLeave(object o)
+                {
+                    pumpsAvailable[6] = "open";
+                    Console.WriteLine(pumpsAvailable[6]);
+                }
             }
             else
             {
@@ -167,7 +213,14 @@ static void pumpQuestion()
             {
                 Console.WriteLine("The car has been sent to pump 8");
                 pumpsAvailable[7] = "Closed";
+                Timer carFuel = new Timer(carLeave, null, 8000, 8000);
+                void carLeave(object o)
+                {
+                    pumpsAvailable[7] = "open";
+                    Console.WriteLine(pumpsAvailable[7]);
+                }
             }
+
             else
             {
                 Console.WriteLine("That pump is occupied");
@@ -179,6 +232,13 @@ static void pumpQuestion()
             {
                 Console.WriteLine("The car has been sent to pump 9");
                 pumpsAvailable[8] = "Closed";
+                Timer carFuel = new Timer(carLeave, null, 8000, 8000);
+
+                void carLeave(object o)
+                {
+                    pumpsAvailable[8] = "open";
+                    Console.WriteLine(pumpsAvailable[8]);
+                }
             }
             else
             {
