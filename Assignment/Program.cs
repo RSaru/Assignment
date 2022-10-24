@@ -27,23 +27,27 @@ void carLeave(object o)
     pumpQuestion();
 }
 */
-
-static void pumps()
+string[] pumpsAvailable = new string[9] { "open", "open", "open", "open", "open", "open", "open", "open", "open" };
+static void pumps(string[] pumpsAvailable)
 
 {
-    string[] pumpsAvailable = new string[9] { "open", "open", "open", "open", "open", "open", "open", "open", "open" };
+
     Console.WriteLine("Pump 1: " + pumpsAvailable[0] + "        Pump 2: " + pumpsAvailable[1] + "          Pump 3: " + pumpsAvailable[2]);
     Console.WriteLine("Pump 4: " + pumpsAvailable[3] + "        Pump 5: " + pumpsAvailable[4] + "          Pump 6: " + pumpsAvailable[5]);
     Console.WriteLine("Pump 7: " + pumpsAvailable[6] + "        Pump 8: " + pumpsAvailable[7] + "          Pump 9: " + pumpsAvailable[8]);
     Console.WriteLine("Current Cars: ");
     cars();
-    pumpQuestion();
 
 }
 
-pumps();
 
 
+
+
+static void piss(string[] shit)
+{
+    shit[0] = "busy";
+}
 
 
 
@@ -58,11 +62,13 @@ static void cars()
     }
 }
 
+piss(pumpsAvailable);
+pumps(pumpsAvailable);
 
 
-static void pumpQuestion()
+
+static void pumpQuestion(string[] pumpsAvailable)
 {
-    string[] pumpsAvailable = new string[9] { "open", "open", "open", "open", "open", "open", "open", "open", "open" };
     int carSend;
     int i = 0;
     do
@@ -79,7 +85,8 @@ static void pumpQuestion()
                 Console.WriteLine("Pump 1: " + pumpsAvailable[0] + "        Pump 2: " + pumpsAvailable[1] + "          Pump 3: " + pumpsAvailable[2]);
                 Console.WriteLine("Pump 4: " + pumpsAvailable[3] + "        Pump 5: " + pumpsAvailable[4] + "          Pump 6: " + pumpsAvailable[5]);
                 Console.WriteLine("Pump 7: " + pumpsAvailable[6] + "        Pump 8: " + pumpsAvailable[7] + "          Pump 9: " + pumpsAvailable[8]);
-                pumpQuestion();
+                piss(pumpsAvailable);
+                pumps(pumpsAvailable);
                 Timer carFuel = new Timer(carLeave, null, 8000, 8000);
 
                 void carLeave(object o)
@@ -90,7 +97,7 @@ static void pumpQuestion()
             else if (pumpsAvailable[0] == "Closed")
             {
                 Console.WriteLine("That pump is occupied");
-                pumpQuestion();
+                
             }
         }
         if (carSend == 2)
